@@ -9,6 +9,7 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity implements MissleFragment.OnFireListener{
 
     private FragmentManager fm;
+    private CounterFragment cf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +27,29 @@ public class MainActivity extends AppCompatActivity implements MissleFragment.On
                 .replace(R.id.fragContainerA, new MissleFragment(), "missle")
                 .replace(R.id.fragContainerB, new CounterFragment(), "counter")
                 .commit();
+
     }
 
     public void onFire()
     {
-        Log.d("main", "fire");
+        if(cf == null)
+        {
+            cf = (CounterFragment) fm.findFragmentByTag("counter");
+        }
+        if(cf != null)
+        {
+            cf.incrementCount();
+        }
+    }
+    public void onReset()
+    {
+        if(cf == null)
+        {
+            cf = (CounterFragment) fm.findFragmentByTag("counter");
+        }
+        if(cf != null)
+        {
+            cf.resetCount();
+        }
     }
 }

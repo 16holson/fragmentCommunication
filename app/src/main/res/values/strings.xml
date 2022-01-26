@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fire">Fire</string>
+    <string name="reset_count">Reset Count</string>
+    <string name="countReset">Count Reset</string>
+
 </resources>

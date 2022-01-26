@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,6 +79,21 @@ public class CounterFragment extends Fragment {
 
     public void showCount()
     {
-        txtCounter.setText(" missles fired");
+        txtCounter.setText(count + " missles fired");
+    }
+
+    public void incrementCount()
+    {
+        count++;
+        showCount();
+    }
+    public void resetCount()
+    {
+        count = 0;
+        showCount();
+
+        Toast toast = Toast.makeText(getContext(), R.string.countReset, Toast.LENGTH_SHORT);
+        toast.show();
+
     }
 }

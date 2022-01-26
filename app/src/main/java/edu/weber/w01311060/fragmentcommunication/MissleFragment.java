@@ -34,6 +34,7 @@ public class MissleFragment extends Fragment {
     public interface OnFireListener
     {
         void onFire();
+        void onReset();
     }
 
     public MissleFragment() {
@@ -82,6 +83,7 @@ public class MissleFragment extends Fragment {
         try
         {
             mCallBack = (OnFireListener) activity;
+
         }
         catch (ClassCastException e)
         {
@@ -101,10 +103,17 @@ public class MissleFragment extends Fragment {
             @Override
             public void onClick(View view)
             {
-                Log.d("MissleFire", "Fire");
-
                 mCallBack.onFire();
+            }
+        });
 
+        Button reset = root.findViewById(R.id.btnReset);
+        reset.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                mCallBack.onReset();
             }
         });
     }
